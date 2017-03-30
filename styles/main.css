@@ -1,0 +1,141 @@
+#version{
+    bottom: 5px;
+    right: 1%;
+    position: absolute;
+    border-width: 1px;
+    border-color: aquamarine;
+    border-style: dotted;
+    background-color: white;
+    opacity: 0.9;
+    font-size: xx-small;
+
+}
+
+#container {
+    width: 99%;
+    height: 99%;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    background-color:  aliceblue;
+    position: relative;
+    opacity: 0.99;
+    z-index: 0;
+
+}
+
+html, body {
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: white;
+}
+
+#map {
+    z-index: 1;
+    background-color: whitesmoke;
+    position: absolute;
+    left: 50%;
+    right: 5px;
+    top: 110px;
+    bottom: 5px;
+    overflow: hidden;
+
+}
+
+#stats {
+    z-index: 1;
+    background-color: whitesmoke;
+    position: absolute;
+    left: 5px;
+    right: 50%;
+    top: 110px;
+    bottom: 5px;
+    border: dotted;
+    border-color: #0c457d;
+    border-width: thin;
+}
+
+
+.lsoa_fill {
+    fill: #6bd2db;
+    stroke: #0c457d;
+    stroke-dasharray: 2,2;
+    stroke-linejoin: round;
+    opacity: 0.2;
+
+}
+path {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.land {
+    fill: #CBD39B;
+    opacity: 0.8;
+    stroke: lightgray;
+}
+
+.land :hover {
+    fill: #e8702a;
+}
+
+.land .neighbor {
+    fill: #ffbe4f;
+}
+
+.border {
+    pointer-events: none;
+    fill: none;
+    stroke: #fff;
+}
+
+.border--district {
+    stroke-width: .5px;
+}
+
+.border--state {
+    stroke-width: 1.5px;
+}
+
+#lsoainfo {
+    top: 5px;
+    left: 5px;
+    position: absolute;
+
+}
+
+#banner {
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100px;
+    position: fixed;
+    z-index: 2;
+    background-color:  #0c457d;
+    font-size: 48pt;
+    margin: 5px;
+    font-style: oblique;
+    align-content: center;
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+#title {
+    vertical-align: middle;
+    color: #e8702a;
+
+}
+
+
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
