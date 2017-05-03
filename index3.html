@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LSOAs and D3.js</title>
+</head>
+<style>
+    circle {
+        fill: #eee;
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+    a {
+        font-family: font-family: 'Old Standard TT', serif;
+        font-size: 20px;
+        text-align:  justify;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    td {
+        text-align: center;
+    }
+
+</style>
+<body>
+<table sytle="width:100%">
+    <tr>
+        <td><a>Overview Map</a></td>
+        <td><a>CHALICE Method</a></td>
+        <td><a>CHALICE Method (PWC)</a></td>
+    </tr>
+    <tr>
+        <td><div id="panel1"/></td>
+        <td><div id="panel2" /></td>
+        <td><div id="panel3" /></td>
+    </tr>
+    <tr>
+        <td><a>Kernel Density Estimates</a></td>
+        <td><a>Density per KM<sup>2</sup></a></td>
+        <td><a>Outlets per 1000 population</a></td>
+    </tr>
+    <tr>
+        <td><div id="panel4"/></td>
+        <td><div id="panel5" /></td>
+        <td><div id="panel6" /></td>
+    </tr>
+</table>
+
+
+</body>
+<link rel="stylesheet" type="text/css" href="styles/main.css"/>
+<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Oswald" rel="stylesheet">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+<script src="JS/dorling3-rural.js"></script>
+
+</html>
