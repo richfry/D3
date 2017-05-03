@@ -364,17 +364,11 @@ function draw_map(panel) {
                 oy: centroid[1],
                 geometry: d.geometry,
                 //dorling: dorling(d.geometry, d.properties.radius * 2),
-                wimd: d.properties.wimd
+                wimd: d.properties.wimd,
+                Morphology: d.properties.Morphology
             };
         });
 
-        /*var links = d3.merge(neighbors.map(function (neighbors, i) {
-            var source = nodes[i];
-            return neighbors.map(function (target) {
-                target = nodes[target];
-                return {source: source, target: target, distance: source.dorling.radius + target.dorling.radius};
-            });
-        }));*/
 
         var node = svg.selectAll("g")
             .data(nodes)
@@ -390,34 +384,37 @@ function draw_map(panel) {
                 return path(d.geometry);
             })
             .style("fill", function (d, i) {
-                if (d.wimd == 1 || d.wimd == 2) {
-                    return '#336699'
-                } else if (d.wimd == 4 || d.wimd == 5) {
+                if (d.Morphology == "Village Hamlet & Isolated Dwellings") {
                     return '#003399'
+                } else if (d.Morphology == "Urban > 10K") {
+                    return '#336699'
                 } else {
                     return '#ffffff'
                 }
             })
             .attr("stroke-width", 0.5)
-            .attr("stroke", "gray");
-
-
+            .attr("stroke", function (d) {
+                if (d.Morphology == "Town and Fringe") {
+                    return "grey"
+                }
+            });
     });
+
     function polygons(geometries) {
         var id = 0;
         return d3.merge(geometries.map(function(geometry) {
             return (geometry.type === "MultiPolygon" ? geometry.arcs : [geometry.arcs]).map(function(d) {
-                var props = search(geometry.properties.LSOA01CD, variable);
+                var props = search(geometry.properties.LSOA01CD);
 
-                return {id: ++id, type: "Polygon", arcs: d, parent: geometry, properties: {radius: props[0], wimd: props[1], Morphology: props[2]}};
+                return {id: ++id, type: "Polygon", arcs: d, parent: geometry, properties: {wimd: props[0], Morphology: props[1]}};
             });
         }));
     }
 
-    function search(nameKey, density){
+    function search(nameKey){
         for (var i=0; i < dataset.length; i++) {
             if (dataset[i].LSOA === nameKey) {
-                return [dataset[i][density], dataset[i].WIMD, dataset[i].Morphology];
+                return [dataset[i].WIMD, dataset[i].Morphology];
             }
         }
     }
